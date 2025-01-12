@@ -1,0 +1,39 @@
+server:
+  port: 8888
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+  instance:
+    preferIpAddress: true
+    leaseRenewalIntervalInSeconds: 10
+    leaseExpirationDurationInSeconds: 30
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health, info
+  endpoint:
+    health:
+      show-details: always
+    info:
+      enabled: true
+
+spring:
+  application:
+    name: gateway
+  cloud:
+    gateway:
+      enabled: true
+      routes:
+
+        - id: tasks-api
+          uri: lb://tasks
+          predicates:
+            - Path=/tasks/**
+
+        - id: solutions-api
+          uri: lb://solutions
+          predicates:
+            - Path=/tasks/**
