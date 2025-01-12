@@ -23,3 +23,5 @@ jobs:
         run: mvn -B test --file solutions-api/pom.xml
       - name: tasks-api tests
         run: mvn -B test --file tasks-api/pom.xml
+      - name: tasks-api tests
+        run: mvn -B test --file gateway/pom.xml
