@@ -36,4 +36,4 @@ spring:
         - id: solutions-api
           uri: lb://solutions
           predicates:
-            - Path=/tasks/**
+            - Path=/solutions/**
