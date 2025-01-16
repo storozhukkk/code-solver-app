@@ -13,6 +13,7 @@
     <version>0.0.1-SNAPSHOT</version>
     <name>eureka-server</name>
     <description>eureka-server</description>
+    <packaging>jar</packaging>
     <url/>
     <licenses>
         <license/>
@@ -55,10 +56,24 @@
     </dependencyManagement>
 
     <build>
+        <finalName>eureka</finalName>
         <plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>repackage</goal>
+                        </goals>
+                        <configuration>
+                            <classifier>spring-boot</classifier>
+                            <mainClass>
+                                ua.storozhukk.eurekaserver.EurekaServerApplication
+                            </mainClass>
+                        </configuration>
+                    </execution>
+                </executions>
             </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
