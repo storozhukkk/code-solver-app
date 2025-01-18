@@ -1,18 +1,26 @@
 package ua.storozhukk.tasks.data;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.Id;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.util.Objects;
+import java.util.UUID;
+
+import static jakarta.persistence.GenerationType.UUID;
 
 @Getter
 @Setter
+@Entity
 @NoArgsConstructor
 public class TaskData {
 
-    //TODO objectID
-    private String id;
+    @Id
+    @GeneratedValue(strategy = UUID)
+    private UUID id;
 
     private String name;
 
@@ -20,6 +28,10 @@ public class TaskData {
 
     private TaskLanguage language;
 
+    private UUID authorID;
+
+    /** path to project directory, where tests are stored */
+    private String taskFilesPath;
 
     @Override
     public boolean equals(Object o) {
