@@ -7,5 +7,5 @@ import ua.storozhukk.tasks.data.TaskData;
 import java.util.UUID;
 
 @Repository
-public interface TaskDataRepository extends JpaRepository<UUID, TaskData> {
+public interface TaskDataRepository extends JpaRepository<TaskData, UUID> {
 }
